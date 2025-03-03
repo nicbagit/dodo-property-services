@@ -8,15 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
         { src: "images/project3.jpg", alt: "Project 3 - Renovated Apartment" }
     ];
 
-    projects.forEach(project => {
+    projects.forEach((project, index) => {
         const a = document.createElement("a");
         a.href = project.src;
-        a.setAttribute("data-lightbox", "gallery");
-        a.setAttribute("data-title", project.alt);
+        a.setAttribute("data-lightbox", "gallery"); // Group images in the same gallery
+        a.setAttribute("data-title", project.alt);  // Display image title in Lightbox
 
         const img = document.createElement("img");
         img.src = project.src;
         img.alt = project.alt;
+        img.classList.add("gallery-img");  // Optional styling
 
         a.appendChild(img);
         gallery.appendChild(a);
