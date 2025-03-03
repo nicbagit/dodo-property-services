@@ -10,12 +10,23 @@ body {
 
 /* Header */
 header {
-    background: rgba(255, 215, 0, 0.9);
+    /*background: rgba(255, 215, 0, 0.9);
     padding: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);*/
+    background-image: url('images/beach_sky_sand.jpg'); /* Add path to your image */
+    background-size: cover; /* Ensures the image covers the entire header */
+    background-position: center center; /* Centers the image */
+    color: white; /* Optional: changes text color for better contrast against the image */
+    padding: 50px 0; /* Adjust padding to suit your design */
+    text-align: center; /* Centers the text */
 }
 
-/* Navigation */
+header h1 {
+    margin: 0; /* Removes default margin */
+    font-size: 3em; /* Adjust the size of the title text */
+}
+
+/* Navigation 
 nav ul {
     list-style: none;
     padding: 0;
@@ -30,6 +41,27 @@ nav ul li a {
     text-decoration: none;
     color: #2E8B57;
     font-weight: bold;
+}*/
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white; /* Adjust color for the links */
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
 }
 
 /* Sections */
