@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const gallery = document.getElementById("gallery");
+    const gallery = document.getElementById("gallery");    
 
     // Sample project images (replace with real images later)
     const projects = [
