@@ -9,9 +9,16 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     projects.forEach(project => {
+        const a = document.createElement("a");
+        a.href = project.src;
+        a.setAttribute("data-lightbox", "gallery");
+        a.setAttribute("data-title", project.alt);
+
         const img = document.createElement("img");
         img.src = project.src;
         img.alt = project.alt;
-        gallery.appendChild(img);
+
+        a.appendChild(img);
+        gallery.appendChild(a);
     });
 });
