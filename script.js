@@ -87,7 +87,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentProjectImages = [
         "images/grand_gaube/foundation/Foundation0.jpeg",
         "images/grand_gaube/foundation/Foundation01.jpeg",
-        "images/grand_gaube/foundation/Foundation02.jpg"
+        "images/grand_gaube/foundation/Foundation04.jpeg",
+        "images/grand_gaube/foundation/Foundation02.jpeg",
+        "images/grand_gaube/foundation/Foundation05.jpeg",
+        "images/grand_gaube/foundation/Foundation06.jpeg"
     ];
 
     currentProjectImages.forEach((image, index) => {
