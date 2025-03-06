@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.querySelector(".close");
     const prevBtn = document.getElementById("prev");
     const nextBtn = document.getElementById("next");
+    const sliders = document.querySelectorAll(".image-slider");
 
     let currentProjectImages = [];
     let currentIndex = 0;
@@ -65,6 +66,22 @@ document.addEventListener("DOMContentLoaded", function () {
     nextBtn.addEventListener("click", function () {
         currentIndex = (currentIndex + 1) % currentProjectImages.length;
         updateModalImage();
+    });
+
+    sliders.forEach(slider => {
+    let scrollAmount = 0;
+    const scrollStep = 300; // Pixels per scroll
+    const delay = 3000; // 3 seconds per image
+
+    function autoScroll() {
+        scrollAmount += scrollStep;
+        if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
+            scrollAmount = 0;
+        }
+        slider.scrollTo({ left: scrollAmount, behavior: "smooth" });
+    }
+
+        setInterval(autoScroll, delay);
     });
 
     // Close modal when clicking outside image
