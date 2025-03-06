@@ -85,9 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Dynamically load current project images
     const currentProjectImages = [
-        "images/current1.jpg",
-        "images/current2.jpg",
-        "images/current3.jpg"
+        "images/grand_gaube/foundation/Foundation0.jpeg",
+        "images/grand_gaube/foundation/Foundation01.jpeg",
+        "images/grand_gaube/foundation/Foundation02.jpg"
     ];
 
     currentProjectImages.forEach((image, index) => {
