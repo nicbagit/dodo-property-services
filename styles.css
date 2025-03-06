@@ -210,3 +210,66 @@ button:hover {
     border-radius: 5px;
     margin-top: 10px;
 }
+
+/* Timeline Section */
+#in-flight-projects {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.project-timeline {
+    margin-bottom: 50px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 20px;
+    border-left: 4px solid #0077cc;
+    margin-left: 20px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    background: #0077cc;
+    border-radius: 50%;
+}
+
+.timeline-content {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Image Slider for Each Stage */
+.image-slider {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-top: 10px;
+}
+
+.image-slider img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-slider img:hover {
+    transform: scale(1.05);
+}
+
