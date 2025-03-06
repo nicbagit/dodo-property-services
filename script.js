@@ -89,8 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "images/grand_gaube/foundation/Foundation01.jpeg",
         "images/grand_gaube/foundation/Foundation04.jpeg",
         "images/grand_gaube/foundation/Foundation02.jpeg",
-        "images/grand_gaube/foundation/Foundation05.jpeg",
-        "images/grand_gaube/foundation/Foundation06.jpeg"
+        "images/grand_gaube/foundation/Foundation05.mp4",
+        "images/grand_gaube/foundation/Foundation06.mp4"
     ];
 
     currentProjectImages.forEach((image, index) => {
