@@ -289,9 +289,12 @@ button:hover {
 }
 
 .stage img {
-    width: 100px; /* Adjust size as needed */
+    /*width: 400px;  Adjust size as needed */
+    width: 100%; /* Adjust to fit the container */
+    max-width: 400px; /* Set a reasonable max size */
     height: auto;
-    border-radius: 5px;
+    cursor: pointer;
+    border-radius: 10px;
     transition: transform 0.2s ease-in-out;
 }
 
