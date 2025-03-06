@@ -166,35 +166,38 @@ button:hover {
 }
 
 .current-projects {
-    background: #f4f4f4; /* Light grey background for contrast */
-    padding: 20px;
+    background: #eef2f3; /* Light blue-grey for subtle contrast */
+    padding: 30px;
     text-align: center;
+    border-top: 3px solid #ccc; /* Separation from previous section */
 }
 
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .gallery img, .gallery video {
-    width: 150px;
+    width: 180px;
     height: auto;
     cursor: pointer;
-    transition: transform 0.3s;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .gallery img:hover, .gallery video:hover {
     transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Lightbox Styling */
+/* Lightbox (same as Projects Summary) */
 .lightbox {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -230,4 +233,3 @@ button:hover {
 
 .prev { left: 20px; }
 .next { right: 20px; }
-
