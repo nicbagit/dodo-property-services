@@ -58,6 +58,23 @@
             <!-- Projects will be loaded here from CMS -->
         </div>
     </section>
+
+    <section id="current-projects" class="current-projects">
+    <h2>Current Projects</h2>
+    <div class="gallery">
+        <!-- Images & Videos will be inserted here -->
+    </div>
+    </section>
+
+    <!-- Lightbox Popup -->
+    <div id="lightbox" class="lightbox hidden">
+        <span class="close">&times;</span>
+        <img id="lightbox-image" src="" alt="">
+        <video id="lightbox-video" controls class="hidden"></video>
+        <a class="prev" onclick="changeMedia(-1)">&#10094;</a>
+        <a class="next" onclick="changeMedia(1)">&#10095;</a>
+    </div>
+
   
     <!-- Image Modal -->
     <div id="imageModal" class="modal">
