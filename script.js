@@ -1,58 +1,105 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Sample image data (Replace this with CMS fetch logic)
-    const projectImages = [
-        { src: "images/project1.jpg", alt: "Project 1" },
-        { src: "images/project2.jpg", alt: "Project 2" },
-        { src: "images/project3.jpg", alt: "Project 3" }
+    const gallery = document.getElementById("gallery");
+    const currentProjectsGallery = document.querySelector("#current-projects .gallery");
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const closeBtn = document.querySelector(".close");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+
+    let currentImages = [];
+    let currentIndex = 0;
+
+    // Define project images
+    const projects = [
+        {
+            mainImage: "images/project1.jpg",
+            alt: "Project 1 - Modern House",
+            gallery: ["images/project1-1.jpg", "images/project1-2.jpg", "images/project1-3.jpg"]
+        },
+        {
+            mainImage: "images/project2.jpg",
+            alt: "Project 2 - Beachfront Villa",
+            gallery: ["images/project2-1.jpg", "images/project2-2.jpg", "images/project2-3.jpg"]
+        },
+        {
+            mainImage: "images/project3.jpg",
+            alt: "Project 3 - Renovated Apartment",
+            gallery: ["images/project3-1.jpg", "images/project3-2.jpg", "images/project3-3.jpg"]
+        }
     ];
 
-    const currentProjects = [
-        { src: "images/current1.jpg", alt: "Current Project 1" },
-        { src: "images/current2.jpg", alt: "Current Project 2" }
-    ];
+    // Populate the gallery with project images
+    projects.forEach((project, index) => {
+        const img = document.createElement("img");
+        img.src = project.mainImage;
+        img.alt = project.alt;
+        img.classList.add("gallery-img");
+        img.dataset.index = index;
 
-    function populateGallery(images, containerSelector) {
-        const container = document.querySelector(containerSelector);
-        if (!container) return;
-
-        images.forEach(image => {
-            const link = document.createElement("a");
-            link.href = image.src;
-            link.setAttribute("data-lightbox", "projects");
-
-            const img = document.createElement("img");
-            img.src = image.src;
-            img.alt = image.alt;
-            link.appendChild(img);
-
-            container.appendChild(link);
+        img.addEventListener("click", function () {
+            currentImages = project.gallery;
+            currentIndex = 0;
+            updateModalImage();
+            modal.style.display = "flex";
         });
+
+        gallery.appendChild(img);
+    });
+
+    // Function to open modal with an image
+    function openModal(imageArray, index) {
+        currentImages = imageArray;
+        currentIndex = index;
+        updateModalImage();
+        modal.style.display = "flex";
     }
 
-    populateGallery(projectImages, "#project-gallery .gallery");
-    populateGallery(currentProjects, "#current-projects .gallery");
-
-    // Modal Functionality
-    const modal = document.getElementById("contact-modal");
-    const openModalBtn = document.getElementById("contact-link");
-    const closeModalBtn = document.getElementsByClassName("close")[0];
-
-    if (openModalBtn) {
-        openModalBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            modal.style.display = "block";
-        });
+    // Update modal with current image
+    function updateModalImage() {
+        modalImg.src = currentImages[currentIndex];
     }
 
-    if (closeModalBtn) {
-        closeModalBtn.addEventListener("click", function () {
-            modal.style.display = "none";
-        });
-    }
+    // Close modal
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
 
-    window.addEventListener("click", function (event) {
+    // Navigate images
+    prevBtn.addEventListener("click", function () {
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        updateModalImage();
+    });
+
+    nextBtn.addEventListener("click", function () {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        updateModalImage();
+    });
+
+    // Close modal when clicking outside image
+    modal.addEventListener("click", function (event) {
         if (event.target === modal) {
             modal.style.display = "none";
         }
+    });
+
+    // Dynamically load current project images
+    const currentProjectImages = [
+        "images/current1.jpg",
+        "images/current2.jpg",
+        "images/current3.jpg"
+    ];
+
+    currentProjectImages.forEach((image, index) => {
+        const img = document.createElement("img");
+        img.src = image;
+        img.alt = "Current Project Image " + (index + 1);
+        img.classList.add("gallery-img");
+
+        img.addEventListener("click", function () {
+            openModal(currentProjectImages, index);
+        });
+
+        currentProjectsGallery.appendChild(img);
     });
 });
