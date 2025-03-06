@@ -257,14 +257,15 @@ button:hover {
 /* Image Slider for Each Stage */
 .image-slider {
     display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding-top: 10px;
+    overflow: hidden; /* Hide the overflowing images */
+    width: 100%; /* Ensures the slider takes full width */
+    justify-content: center;
+    position: relative;
 }
 
 .image-slider img {
-    width: 100%;
-    max-width: 300px;
+    width: 100%; /* Ensure images take full width */
+    max-width: 600px; /* Adjust as needed for image size */
     border-radius: 5px;
     transition: transform 0.3s ease-in-out;
 }
