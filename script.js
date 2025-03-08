@@ -3,11 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentProjectsGallery = document.querySelector("#current-projects .gallery");
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
+    const modalVideo = document.createElement('video'); // Create video element
+    modalVideo.controls = true;
+    modalVideo.style.maxWidth = '80%';
+    modalVideo.style.maxHeight = '80%';
+    modalVideo.style.display = 'none'; // Initially hide video
+    modal.appendChild(modalVideo); // Append to modal
+
     const closeBtn = document.querySelector(".close");
     const prevBtn = document.getElementById("prev");
     const nextBtn = document.getElementById("next");
 
-    let currentImages = [];
+    let currentMedia = []; // Use media to handle both images and videos
     let currentIndex = 0;
 
     // Define project images
@@ -38,48 +45,60 @@ document.addEventListener("DOMContentLoaded", function () {
         img.dataset.index = index;
 
         img.addEventListener("click", function () {
-            currentImages = project.gallery;
+            currentMedia = project.gallery;
             currentIndex = 0;
-            updateModalImage();
+            updateModalMedia();
             modal.style.display = "flex";
         });
 
         gallery.appendChild(img);
     });
 
-    // Function to open modal with an image
-    function openModal(imageArray, index) {
-        currentImages = imageArray;
+    // Function to open modal with media
+    function openModal(mediaArray, index) {
+        currentMedia = mediaArray;
         currentIndex = index;
-        updateModalImage();
+        updateModalMedia();
         modal.style.display = "flex";
     }
 
-    // Update modal with current image
-    function updateModalImage() {
-        modalImg.src = currentImages[currentIndex];
+    // Update modal with current media
+    function updateModalMedia() {
+        const currentItem = currentMedia[currentIndex];
+        if (currentItem.endsWith('.mp4')) { // Check if it's a video
+            modalImg.style.display = 'none';
+            modalVideo.style.display = 'block';
+            modalVideo.src = currentItem;
+            modalVideo.load(); // Load the video
+        } else {
+            modalImg.style.display = 'block';
+            modalVideo.style.display = 'none';
+            modalImg.src = currentItem;
+        }
     }
 
     // Close modal
     closeBtn.addEventListener("click", function () {
         modal.style.display = "none";
+        modalVideo.pause(); // Pause video on close
     });
 
-    // Navigate images
+    // Navigate media
     prevBtn.addEventListener("click", function () {
-        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-        updateModalImage();
+        currentIndex = (currentIndex - 1 + currentMedia.length) % currentMedia.length;
+        updateModalMedia();
     });
 
     nextBtn.addEventListener("click", function () {
-        currentIndex = (currentIndex + 1) % currentImages.length;
-        updateModalImage();
+        currentIndex = (currentIndex + 1) % currentMedia.length;
+        updateModalMedia();
     });
 
-    // Close modal when clicking outside image
+    // Close modal when clicking outside media
     modal.addEventListener("click", function (event) {
         if (event.target === modal) {
             modal.style.display = "none";
+            modalVideo.pause(); // Pause video on outside click
         }
     });
 
@@ -103,9 +122,9 @@ document.addEventListener("DOMContentLoaded", function () {
     currentProjectThumbnail.classList.add("gallery-img");
 
     currentProjectThumbnail.addEventListener("click", function () {
-        currentImages = currentProjectData.gallery;
+        currentMedia = currentProjectData.gallery;
         currentIndex = 0;
-        updateModalImage();
+        updateModalMedia();
         modal.style.display = "flex";
     });
 
