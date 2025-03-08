@@ -48,32 +48,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Dynamically load current project images and videos (Lightbox setup)
     const currentProjectMedia = [
-        { type: "image", src: "images/grand_gaube/foundation/Foundation0.jpeg", alt: "Current Project Image 1" },
-        { type: "image", src: "images/grand_gaube/foundation/Foundation01.jpeg", alt: "Current Project Image 2" },
-        { type: "image", src: "images/grand_gaube/foundation/Foundation04.jpeg", alt: "Current Project Image 3" },
-        { type: "image", src: "images/grand_gaube/foundation/Foundation02.jpeg", alt: "Current Project Image 4" },
-        { type: "video", src: "images/grand_gaube/foundation/Foundation05.mp4", alt: "Current Project Video 1" },
-        { type: "video", src: "images/grand_gaube/foundation/Foundation06.mp4", alt: "Current Project Video 2" }
+        {
+            mainImage: "images/grand_gaube/foundation/Foundation0.jpeg",
+            alt: "Grand Gaube Project",
+            gallery: [
+                "images/grand_gaube/foundation/Foundation0.jpeg",
+                "images/grand_gaube/foundation/Foundation01.jpeg",
+                "images/grand_gaube/foundation/Foundation04.jpeg",
+                "images/grand_gaube/foundation/Foundation02.jpeg",
+                "images/grand_gaube/foundation/Foundation05.mp4",
+                "images/grand_gaube/foundation/Foundation06.mp4"
+            ]
+        }
     ];
 
-    currentProjectMedia.forEach((media, index) => {
-        const mediaElement = document.createElement(media.type === "image" ? "a" : "video");
-        mediaElement.href = media.src;
-        mediaElement.dataset.lightbox = "current-projects";
-        mediaElement.title = media.alt;
+    currentProjectMedia.forEach((project) => {
+        const img = document.createElement("a");
+        img.href = project.mainImage;
+        img.dataset.lightbox = "current-projects";
+        img.title = project.alt;
 
-        if (media.type === "image") {
-            const img = document.createElement("img");
-            img.src = media.src;
-            img.alt = media.alt;
-            img.classList.add("gallery-img");
-            mediaElement.appendChild(img);
-        } else {
-            mediaElement.src = media.src;
-            mediaElement.controls = true;
-            mediaElement.classList.add("gallery-img");
-        }
+        const innerImg = document.createElement("img");
+        innerImg.src = project.mainImage;
+        innerImg.alt = project.alt;
+        innerImg.classList.add("gallery-img");
 
-        currentProjectsGallery.appendChild(mediaElement);
+        img.appendChild(innerImg);
+        currentProjectsGallery.appendChild(img);
+
+        // Add gallery images to lightbox group
+        project.gallery.forEach(galleryImage => {
+            const hiddenLink = document.createElement("a");
+            hiddenLink.href = galleryImage;
+            hiddenLink.dataset.lightbox = "current-projects";
+            hiddenLink.style.display = "none";
+            document.body.appendChild(hiddenLink);
+        });
     });
 });
