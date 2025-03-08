@@ -1,6 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     const gallery = document.getElementById("gallery");
     const currentProjectsGallery = document.querySelector("#current-projects .gallery");
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const closeBtn = document.querySelector(".close");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+
+    let currentImages = [];
+    let currentIndex = 0;
 
     // Define project images
     const projects = [
@@ -21,66 +29,80 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     ];
 
-    // Populate the gallery with project images (Lightbox setup)
+    // Populate the gallery with project images
     projects.forEach((project, index) => {
-        const img = document.createElement("a");
-        img.href = project.mainImage;
-        img.dataset.lightbox = "project-gallery";
-        img.title = project.alt;
+        const img = document.createElement("img");
+        img.src = project.mainImage;
+        img.alt = project.alt;
+        img.classList.add("gallery-img");
+        img.dataset.index = index;
 
-        const innerImg = document.createElement("img");
-        innerImg.src = project.mainImage;
-        innerImg.alt = project.alt;
-        innerImg.classList.add("gallery-img");
-
-        img.appendChild(innerImg);
-        gallery.appendChild(img);
-
-        project.gallery.forEach(galleryImage => {
-            const hiddenLink = document.createElement("a");
-            hiddenLink.href = galleryImage;
-            hiddenLink.dataset.lightbox = "project-gallery";
-            hiddenLink.style.display = "none";
-            document.body.appendChild(hiddenLink);
+        img.addEventListener("click", function () {
+            currentImages = project.gallery;
+            currentIndex = 0;
+            updateModalImage();
+            modal.style.display = "flex";
         });
+
+        gallery.appendChild(img);
     });
 
-    // Dynamically load current project images and videos (Lightbox setup)
-    const currentProjectMedia = [
-        {
-            mainImage: "images/grand_gaube/foundation/Foundation0.jpeg",
-            alt: "Grand Gaube Project",
-            gallery: [
-                "images/grand_gaube/foundation/Foundation0.jpeg",
-                "images/grand_gaube/foundation/Foundation01.jpeg",
-                "images/grand_gaube/foundation/Foundation04.jpeg",
-                "images/grand_gaube/foundation/Foundation02.jpeg",
-                "images/grand_gaube/foundation/Foundation05.mp4",
-                "images/grand_gaube/foundation/Foundation06.mp4"
-            ]
+    // Function to open modal with an image
+    function openModal(imageArray, index) {
+        currentImages = imageArray;
+        currentIndex = index;
+        updateModalImage();
+        modal.style.display = "flex";
+    }
+
+    // Update modal with current image
+    function updateModalImage() {
+        modalImg.src = currentImages[currentIndex];
+    }
+
+    // Close modal
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    // Navigate images
+    prevBtn.addEventListener("click", function () {
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        updateModalImage();
+    });
+
+    nextBtn.addEventListener("click", function () {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        updateModalImage();
+    });
+
+    // Close modal when clicking outside image
+    modal.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
         }
+    });
+
+    // Dynamically load current project images
+    const currentProjectImages = [
+        "images/grand_gaube/foundation/Foundation0.jpeg",
+        "images/grand_gaube/foundation/Foundation01.jpeg",
+        "images/grand_gaube/foundation/Foundation04.jpeg",
+        "images/grand_gaube/foundation/Foundation02.jpeg",
+        "images/grand_gaube/foundation/Foundation05.mp4",
+        "images/grand_gaube/foundation/Foundation06.mp4"
     ];
 
-    currentProjectMedia.forEach((project) => {
-        const img = document.createElement("a");
-        img.href = project.mainImage;
-        img.dataset.lightbox = "current-projects";
-        img.title = project.alt;
+    currentProjectImages.forEach((image, index) => {
+        const img = document.createElement("img");
+        img.src = image;
+        img.alt = "Current Project Image " + (index + 1);
+        img.classList.add("gallery-img");
 
-        const innerImg = document.createElement("img");
-        innerImg.src = project.mainImage;
-        innerImg.alt = project.alt;
-        innerImg.classList.add("gallery-img");
-
-        img.appendChild(innerImg);
-        currentProjectsGallery.appendChild(img);
-
-        project.gallery.forEach(galleryImage => {
-            const hiddenLink = document.createElement("a");
-            hiddenLink.href = galleryImage;
-            hiddenLink.dataset.lightbox = "current-projects";
-            hiddenLink.style.display = "none";
-            document.body.appendChild(hiddenLink);
+        img.addEventListener("click", function () {
+            openModal(currentProjectImages, index);
         });
+
+        currentProjectsGallery.appendChild(img);
     });
 });
