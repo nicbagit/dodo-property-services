@@ -133,11 +133,16 @@ button:hover {
 
 .modal-content {
     position: relative;
+    width: 800px; /* Adjust as needed */
+    height: 600px; /* Adjust as needed */
 }
 
-#modalImage {
-    max-width: 80%;
-    max-height: 80%;
+#modalImage, .modal-content video {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%; /* Ensure it fills the modal-content */
+    height: 100%; /* Ensure it fills the modal-content */
+    object-fit: contain; /* Or 'cover' depending on your preference */
     border-radius: 10px;
 }
 
