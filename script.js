@@ -84,25 +84,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Dynamically load current project images
-    const currentProjectImages = [
-        "images/grand_gaube/foundation/Foundation0.jpeg",
-        "images/grand_gaube/foundation/Foundation01.jpeg",
-        "images/grand_gaube/foundation/Foundation04.jpeg",
-        "images/grand_gaube/foundation/Foundation02.jpeg",
-        "images/grand_gaube/foundation/Foundation05.mp4",
-        "images/grand_gaube/foundation/Foundation06.mp4"
-    ];
+    const currentProjectData = {
+        mainImage: "images/grand_gaube/foundation/Foundation0.jpeg",
+        alt: "Grand Gaube Project",
+        gallery: [
+            "images/grand_gaube/foundation/Foundation0.jpeg",
+            "images/grand_gaube/foundation/Foundation01.jpeg",
+            "images/grand_gaube/foundation/Foundation04.jpeg",
+            "images/grand_gaube/foundation/Foundation02.jpeg",
+            "images/grand_gaube/foundation/Foundation05.mp4",
+            "images/grand_gaube/foundation/Foundation06.mp4"
+        ]
+    };
 
-    currentProjectImages.forEach((image, index) => {
-        const img = document.createElement("img");
-        img.src = image;
-        img.alt = "Current Project Image " + (index + 1);
-        img.classList.add("gallery-img");
+    const currentProjectThumbnail = document.createElement("img");
+    currentProjectThumbnail.src = currentProjectData.mainImage;
+    currentProjectThumbnail.alt = currentProjectData.alt;
+    currentProjectThumbnail.classList.add("gallery-img");
 
-        img.addEventListener("click", function () {
-            openModal(currentProjectImages, index);
-        });
-
-        currentProjectsGallery.appendChild(img);
+    currentProjectThumbnail.addEventListener("click", function () {
+        currentImages = currentProjectData.gallery;
+        currentIndex = 0;
+        updateModalImage();
+        modal.style.display = "flex";
     });
+
+    currentProjectsGallery.appendChild(currentProjectThumbnail);
 });
