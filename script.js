@@ -129,14 +129,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     projectStages.forEach((stageData) => {
         const stageGallery = document.querySelector(`#${stageData.stage}-stage .stage-gallery`);
-        const firstImage = stageData.images[0]; // Get the first image
+        const firstImage = stageData.images[0];
 
         const img = document.createElement("img");
         img.src = firstImage;
         img.classList.add("gallery-img");
         img.addEventListener("click", function () {
             currentMedia = stageData.images;
-            currentIndex = 0; // Start with the first image
+            currentIndex = 0;
             updateModalMedia();
             modal.style.display = "flex";
             setupCloseButton();
