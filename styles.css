@@ -238,3 +238,10 @@ button:hover {
 
 .prev { left: 20px; }
 .next { right: 20px; }
+
+#current-projects h3 {
+    font-size: 1.2em; /* Adjust size as needed */
+    color: #888; /* Adjust color as needed */
+    margin-top: 5px; /* Adjust spacing as needed */
+    font-weight: normal; /* Adjust weight as needed */
+}
