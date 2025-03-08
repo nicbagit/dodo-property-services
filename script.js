@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const gallery = document.getElementById("gallery");
+    const currentProjectsGallery = document.querySelector("#current-projects .gallery");
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
     const modalVideo = document.createElement('video');
@@ -98,49 +99,31 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    const projectStages = [
-        {
-            stage: "foundation",
-            images: [
-                "images/grand_gaube/foundation/Foundation0.jpeg",
-                "images/grand_gaube/foundation/Foundation01.jpeg",
-                "images/grand_gaube/foundation/Foundation04.jpeg",
-                "images/grand_gaube/foundation/Foundation02.jpeg",
-                "images/grand_gaube/foundation/Foundation05.mp4",
-                "images/grand_gaube/foundation/Foundation06.mp4",
-            ],
-        },
-        {
-            stage: "framing",
-            images: [
-                "images/grand_gaube/framing/Framing01.jpeg",
-                "images/grand_gaube/framing/Framing02.jpeg",
-                "images/grand_gaube/framing/Framing03.jpeg",
-            ],
-        },
-        {
-            stage: "roofing",
-            images: [
-                "images/grand_gaube/roofing/Roofing01.jpeg",
-                "images/grand_gaube/roofing/Roofing02.jpeg",
-            ],
-        },
-    ];
+    const currentProjectData = {
+        mainImage: "images/grand_gaube/foundation/Foundation0.jpeg",
+        alt: "Grand Gaube Project",
+        gallery: [
+            "images/grand_gaube/foundation/Foundation0.jpeg",
+            "images/grand_gaube/foundation/Foundation01.jpeg",
+            "images/grand_gaube/foundation/Foundation04.jpeg",
+            "images/grand_gaube/foundation/Foundation02.jpeg",
+            "images/grand_gaube/foundation/Foundation05.mp4",
+            "images/grand_gaube/foundation/Foundation06.mp4"
+        ]
+    };
 
-    projectStages.forEach((stageData) => {
-        const stageGallery = document.querySelector(`#${stageData.stage}-stage .stage-gallery`);
-        const firstImage = stageData.images[0]; // Get the first image
+    const currentProjectThumbnail = document.createElement("img");
+    currentProjectThumbnail.src = currentProjectData.mainImage;
+    currentProjectThumbnail.alt = currentProjectData.alt;
+    currentProjectThumbnail.classList.add("gallery-img");
 
-        const img = document.createElement("img");
-        img.src = firstImage;
-        img.classList.add("gallery-img");
-        img.addEventListener("click", function () {
-            currentMedia = stageData.images;
-            currentIndex = 0; // Start with the first image
-            updateModalMedia();
-            modal.style.display = "flex";
-            setupCloseButton();
-        });
-        stageGallery.appendChild(img);
+    currentProjectThumbnail.addEventListener("click", function () {
+        currentMedia = currentProjectData.gallery;
+        currentIndex = 0;
+        updateModalMedia();
+        modal.style.display = "flex";
+        setupCloseButton();
     });
+
+    currentProjectsGallery.appendChild(currentProjectThumbnail);
 });
