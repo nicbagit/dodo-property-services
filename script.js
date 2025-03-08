@@ -75,6 +75,15 @@ document.addEventListener("DOMContentLoaded", function () {
             filenameDisplay = document.createElement("div");
             filenameDisplay.id = "filenameDisplay";
             filenameDisplay.style.textAlign = "center";
+
+            filenameDisplay.style.marginTop = "10px"; // Add some space
+            filenameDisplay.style.padding = "5px 10px"; // Add padding
+            filenameDisplay.style.backgroundColor = "rgba(0, 0, 0, 0.7)"; // Dark background
+            filenameDisplay.style.color = "white"; // White text
+            filenameDisplay.style.borderRadius = "5px"; // Rounded corners
+            filenameDisplay.style.fontSize = "16px"; // Adjust font size
+            filenameDisplay.style.fontWeight = "bold"; // Bold text
+            
             modal.querySelector(".modal-content").appendChild(filenameDisplay);
         }
         filenameDisplay.textContent = filename;
