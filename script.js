@@ -129,18 +129,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     projectStages.forEach((stageData) => {
         const stageGallery = document.querySelector(`#${stageData.stage}-stage .stage-gallery`);
-        stageData.images.forEach((image) => {
-            const img = document.createElement("img");
-            img.src = image;
-            img.classList.add("gallery-img");
-            img.addEventListener("click", function () {
-                currentMedia = stageData.images;
-                currentIndex = stageData.images.indexOf(image);
-                updateModalMedia();
-                modal.style.display = "flex";
-                setupCloseButton();
-            });
-            stageGallery.appendChild(img);
+        const firstImage = stageData.images[0]; // Get the first image
+
+        const img = document.createElement("img");
+        img.src = firstImage;
+        img.classList.add("gallery-img");
+        img.addEventListener("click", function () {
+            currentMedia = stageData.images;
+            currentIndex = 0; // Start with the first image
+            updateModalMedia();
+            modal.style.display = "flex";
+            setupCloseButton();
         });
+        stageGallery.appendChild(img);
     });
 });
