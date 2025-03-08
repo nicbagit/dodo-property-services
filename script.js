@@ -10,12 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
     modalVideo.style.display = 'none';
     modal.appendChild(modalVideo);
 
-    const closeBtn = document.querySelector(".close");
     const prevBtn = document.getElementById("prev");
     const nextBtn = document.getElementById("next");
 
-    let currentImages = []; // For project gallery images
-    let currentMedia = []; // For current project media (images and videos)
+    let currentMedia = [];
     let currentIndex = 0;
 
     // Define project images
@@ -46,31 +44,18 @@ document.addEventListener("DOMContentLoaded", function () {
         img.dataset.index = index;
 
         img.addEventListener("click", function () {
-            currentImages = project.gallery;
+            currentMedia = project.gallery;
             currentIndex = 0;
-            modalImg.style.display = 'block'; // Ensure image is shown
-            modalVideo.style.display = 'none'; // Ensure video is hidden
-            updateModalImage();
+            modalImg.style.display = 'block';
+            modalVideo.style.display = 'none';
+            updateModalMedia();
             modal.style.display = "flex";
+            setupCloseButton();
         });
 
         gallery.appendChild(img);
     });
 
-    // Function to open modal with an image
-    function openModal(imageArray, index) {
-        currentImages = imageArray;
-        currentIndex = index;
-        updateModalImage();
-        modal.style.display = "flex";
-    }
-
-    // Update modal with current image
-    function updateModalImage() {
-        modalImg.src = currentImages[currentIndex];
-    }
-
-    // Update modal with current media (images and videos)
     function updateModalMedia() {
         const currentItem = currentMedia[currentIndex];
         if (currentItem.endsWith('.mp4')) {
@@ -85,29 +70,26 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    closeBtn.addEventListener("click", function () {
-        modal.style.display = "none";
-        modalVideo.pause();
-    });
+    function setupCloseButton() {
+        const closeBtn = document.querySelector("#imageModal .close");
+        if (closeBtn) {
+            closeBtn.addEventListener("click", function () {
+                modal.style.display = "none";
+                modalVideo.pause();
+            });
+        } else {
+            console.error("Close button not found!");
+        }
+    }
 
     prevBtn.addEventListener("click", function () {
-        if (currentMedia.length > 0) {
-            currentIndex = (currentIndex - 1 + currentMedia.length) % currentMedia.length;
-            updateModalMedia();
-        } else if (currentImages.length > 0) {
-            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-            updateModalImage();
-        }
+        currentIndex = (currentIndex - 1 + currentMedia.length) % currentMedia.length;
+        updateModalMedia();
     });
 
     nextBtn.addEventListener("click", function () {
-        if (currentMedia.length > 0) {
-            currentIndex = (currentIndex + 1) % currentMedia.length;
-            updateModalMedia();
-        } else if (currentImages.length > 0) {
-            currentIndex = (currentIndex + 1) % currentImages.length;
-            updateModalImage();
-        }
+        currentIndex = (currentIndex + 1) % currentMedia.length;
+        updateModalMedia();
     });
 
     modal.addEventListener("click", function (event) {
@@ -140,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
         currentIndex = 0;
         updateModalMedia();
         modal.style.display = "flex";
+        setupCloseButton();
     });
 
     currentProjectsGallery.appendChild(currentProjectThumbnail);
