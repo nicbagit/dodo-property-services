@@ -61,3 +61,86 @@ document.addEventListener("DOMContentLoaded", function () {
             modalImg.style.display = 'none';
             modalVideo.style.display = 'block';
             modalVideo.src = currentItem;
+            modalVideo.load();
+        } else {
+            modalImg.style.display = 'block';
+            modalVideo.style.display = 'none';
+            modalImg.src = currentItem;
+        }
+    }
+
+    function setupCloseButton() {
+        const closeBtn = document.querySelector("#imageModal .close");
+        if (closeBtn) {
+            closeBtn.addEventListener("click", function () {
+                modal.style.display = "none";
+                modalVideo.pause();
+            });
+        } else {
+            console.error("Close button not found!");
+        }
+    }
+
+    prevBtn.addEventListener("click", function () {
+        currentIndex = (currentIndex - 1 + currentMedia.length) % currentMedia.length;
+        updateModalMedia();
+    });
+
+    nextBtn.addEventListener("click", function () {
+        currentIndex = (currentIndex + 1) % currentMedia.length;
+        updateModalMedia();
+    });
+
+    modal.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+            modalVideo.pause();
+        }
+    });
+
+    const projectStages = [
+        {
+            stage: "foundation",
+            images: [
+                "images/grand_gaube/foundation/Foundation0.jpeg",
+                "images/grand_gaube/foundation/Foundation01.jpeg",
+                "images/grand_gaube/foundation/Foundation04.jpeg",
+                "images/grand_gaube/foundation/Foundation02.jpeg",
+                "images/grand_gaube/foundation/Foundation05.mp4",
+                "images/grand_gaube/foundation/Foundation06.mp4",
+            ],
+        },
+        {
+            stage: "framing",
+            images: [
+                "images/grand_gaube/framing/Framing01.jpeg",
+                "images/grand_gaube/framing/Framing02.jpeg",
+                "images/grand_gaube/framing/Framing03.jpeg",
+            ],
+        },
+        {
+            stage: "roofing",
+            images: [
+                "images/grand_gaube/roofing/Roofing01.jpeg",
+                "images/grand_gaube/roofing/Roofing02.jpeg",
+            ],
+        },
+    ];
+
+    projectStages.forEach((stageData) => {
+        const stageGallery = document.querySelector(`#${stageData.stage}-stage .stage-gallery`);
+        stageData.images.forEach((image) => {
+            const img = document.createElement("img");
+            img.src = image;
+            img.classList.add("gallery-img");
+            img.addEventListener("click", function () {
+                currentMedia = stageData.images;
+                currentIndex = stageData.images.indexOf(image);
+                updateModalMedia();
+                modal.style.display = "flex";
+                setupCloseButton();
+            });
+            stageGallery.appendChild(img);
+        });
+    });
+});
