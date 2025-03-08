@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateModalMedia() {
         const currentItem = currentMedia[currentIndex];
+        const filename = currentItem.substring(currentItem.lastIndexOf('/') + 1); // Extract filename
         if (currentItem.endsWith('.mp4')) {
             modalImg.style.display = 'none';
             modalVideo.style.display = 'block';
@@ -68,6 +69,15 @@ document.addEventListener("DOMContentLoaded", function () {
             modalVideo.style.display = 'none';
             modalImg.src = currentItem;
         }
+        // Add or update filename display
+        let filenameDisplay = document.getElementById("filenameDisplay");
+        if (!filenameDisplay) {
+            filenameDisplay = document.createElement("div");
+            filenameDisplay.id = "filenameDisplay";
+            filenameDisplay.style.textAlign = "center";
+            modal.querySelector(".modal-content").appendChild(filenameDisplay);
+        }
+        filenameDisplay.textContent = filename;
     }
 
     function setupCloseButton() {
