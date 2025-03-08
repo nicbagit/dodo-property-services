@@ -10,38 +10,18 @@ body {
 
 /* Header */
 header {
-    /*background: rgba(255, 215, 0, 0.9);
-    padding: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);*/
-    background-image: url('images/beach_sky_sand.jpg'); /* Add path to your image */
-    background-size: cover; /* Ensures the image covers the entire header */
-    background-position: center center; /* Centers the image */
-    color: white; /* Optional: changes text color for better contrast against the image */
-    padding: 50px 0; /* Adjust padding to suit your design */
-    text-align: center; /* Centers the text */
+    background-image: url('images/beach_sky_sand.jpg');
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
 }
 
 header h1 {
-    margin: 0; /* Removes default margin */
-    font-size: 3em; /* Adjust the size of the title text */
+    margin: 0;
+    font-size: 3em;
 }
-
-/* Navigation 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #2E8B57;
-    font-weight: bold;
-}*/
 
 nav ul {
     list-style-type: none;
@@ -55,7 +35,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: white; /* Adjust color for the links */
+    color: white;
     font-size: 1.2em;
     font-weight: bold;
 }
@@ -133,16 +113,16 @@ button:hover {
 
 .modal-content {
     position: relative;
-    width: 800px; /* Adjust as needed */
-    height: 600px; /* Adjust as needed */
+    width: 800px;
+    height: 600px;
 }
 
 #modalImage, .modal-content video {
     max-width: 100%;
     max-height: 100%;
-    width: 100%; /* Ensure it fills the modal-content */
-    height: 100%; /* Ensure it fills the modal-content */
-    object-fit: contain; /* Or 'cover' depending on your preference */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     border-radius: 10px;
 }
 
@@ -171,10 +151,10 @@ button:hover {
 }
 
 .current-projects {
-    background: #eef2f3; /* Light blue-grey for subtle contrast */
+    background: #eef2f3;
     padding: 30px;
     text-align: center;
-    border-top: 3px solid #ccc; /* Separation from previous section */
+    border-top: 3px solid #ccc;
 }
 
 .gallery {
@@ -200,8 +180,10 @@ button:hover {
 /* Lightbox (same as Projects Summary) */
 .lightbox {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
@@ -221,7 +203,8 @@ button:hover {
 
 .close {
     position: absolute;
-    top: 20px; right: 30px;
+    top: 20px;
+    right: 30px;
     font-size: 40px;
     color: white;
     cursor: pointer;
@@ -240,8 +223,26 @@ button:hover {
 .next { right: 20px; }
 
 #current-projects h3 {
-    font-size: 1.2em; /* Adjust size as needed */
-    color: #888; /* Adjust color as needed */
-    margin-top: 5px; /* Adjust spacing as needed */
-    font-weight: normal; /* Adjust weight as needed */
+    font-size: 1.2em;
+    color: #888;
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+/* Project Stages Layout */
+.project-stages {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.stage {
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+}
+
+.stage-gallery {
+    display: flex;
+    justify-content: center;
 }
