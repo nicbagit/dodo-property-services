@@ -3,19 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentProjectsGallery = document.querySelector("#current-projects .gallery");
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
-    const modalVideo = document.createElement('video');
+    const modalVideo = document.createElement('video'); // Create video element
     modalVideo.controls = true;
     modalVideo.style.maxWidth = '80%';
     modalVideo.style.maxHeight = '80%';
-    modalVideo.style.display = 'none';
-    modal.appendChild(modalVideo);
+    modalVideo.style.display = 'none'; // Initially hide video
+    modal.appendChild(modalVideo); // Append to modal
 
     const closeBtn = document.querySelector(".close");
     const prevBtn = document.getElementById("prev");
     const nextBtn = document.getElementById("next");
 
-    let currentImages = []; // For project gallery images
-    let currentMedia = []; // For current project media (images and videos)
+    let currentMedia = []; // Use media to handle both images and videos
     let currentIndex = 0;
 
     // Define project images
@@ -46,38 +45,31 @@ document.addEventListener("DOMContentLoaded", function () {
         img.dataset.index = index;
 
         img.addEventListener("click", function () {
-            currentImages = project.gallery;
+            currentMedia = project.gallery;
             currentIndex = 0;
-            modalImg.style.display = 'block'; // Ensure image is shown
-            modalVideo.style.display = 'none'; // Ensure video is hidden
-            updateModalImage();
+            updateModalMedia();
             modal.style.display = "flex";
         });
 
         gallery.appendChild(img);
     });
 
-    // Function to open modal with an image
-    function openModal(imageArray, index) {
-        currentImages = imageArray;
+    // Function to open modal with media
+    function openModal(mediaArray, index) {
+        currentMedia = mediaArray;
         currentIndex = index;
-        updateModalImage();
+        updateModalMedia();
         modal.style.display = "flex";
     }
 
-    // Update modal with current image
-    function updateModalImage() {
-        modalImg.src = currentImages[currentIndex];
-    }
-
-    // Update modal with current media (images and videos)
+    // Update modal with current media
     function updateModalMedia() {
         const currentItem = currentMedia[currentIndex];
-        if (currentItem.endsWith('.mp4')) {
+        if (currentItem.endsWith('.mp4')) { // Check if it's a video
             modalImg.style.display = 'none';
             modalVideo.style.display = 'block';
             modalVideo.src = currentItem;
-            modalVideo.load();
+            modalVideo.load(); // Load the video
         } else {
             modalImg.style.display = 'block';
             modalVideo.style.display = 'none';
@@ -85,38 +77,32 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Close modal
     closeBtn.addEventListener("click", function () {
         modal.style.display = "none";
-        modalVideo.pause();
+        modalVideo.pause(); // Pause video on close
     });
 
+    // Navigate media
     prevBtn.addEventListener("click", function () {
-        if (currentMedia.length > 0) {
-            currentIndex = (currentIndex - 1 + currentMedia.length) % currentMedia.length;
-            updateModalMedia();
-        } else if (currentImages.length > 0) {
-            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-            updateModalImage();
-        }
+        currentIndex = (currentIndex - 1 + currentMedia.length) % currentMedia.length;
+        updateModalMedia();
     });
 
     nextBtn.addEventListener("click", function () {
-        if (currentMedia.length > 0) {
-            currentIndex = (currentIndex + 1) % currentMedia.length;
-            updateModalMedia();
-        } else if (currentImages.length > 0) {
-            currentIndex = (currentIndex + 1) % currentImages.length;
-            updateModalImage();
-        }
+        currentIndex = (currentIndex + 1) % currentMedia.length;
+        updateModalMedia();
     });
 
+    // Close modal when clicking outside media
     modal.addEventListener("click", function (event) {
         if (event.target === modal) {
             modal.style.display = "none";
-            modalVideo.pause();
+            modalVideo.pause(); // Pause video on outside click
         }
     });
 
+    // Dynamically load current project images
     const currentProjectData = {
         mainImage: "images/grand_gaube/foundation/Foundation0.jpeg",
         alt: "Grand Gaube Project",
