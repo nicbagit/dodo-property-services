@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Populate the gallery with project images (Lightbox setup)
     projects.forEach((project, index) => {
         const img = document.createElement("a");
-        img.href = project.mainImage; // Set href to main image
-        img.dataset.lightbox = "project-gallery"; // Use data-lightbox attribute for Lightbox
-        img.title = project.alt; // Set title for Lightbox
+        img.href = project.mainImage;
+        img.dataset.lightbox = "project-gallery";
+        img.title = project.alt;
 
         const innerImg = document.createElement("img");
         innerImg.src = project.mainImage;
@@ -36,12 +36,11 @@ document.addEventListener("DOMContentLoaded", function () {
         img.appendChild(innerImg);
         gallery.appendChild(img);
 
-        // Add gallery images to lightbox group
         project.gallery.forEach(galleryImage => {
             const hiddenLink = document.createElement("a");
             hiddenLink.href = galleryImage;
             hiddenLink.dataset.lightbox = "project-gallery";
-            hiddenLink.style.display = "none"; // Hide these links
+            hiddenLink.style.display = "none";
             document.body.appendChild(hiddenLink);
         });
     });
@@ -76,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
         img.appendChild(innerImg);
         currentProjectsGallery.appendChild(img);
 
-        // Add gallery images to lightbox group
         project.gallery.forEach(galleryImage => {
             const hiddenLink = document.createElement("a");
             hiddenLink.href = galleryImage;
