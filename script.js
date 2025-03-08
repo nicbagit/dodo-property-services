@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     const gallery = document.getElementById("gallery");
-    const currentProjectsGallery = document.querySelector("#current-projects .gallery");
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
     const modalVideo = document.createElement('video');
@@ -62,68 +61,3 @@ document.addEventListener("DOMContentLoaded", function () {
             modalImg.style.display = 'none';
             modalVideo.style.display = 'block';
             modalVideo.src = currentItem;
-            modalVideo.load();
-        } else {
-            modalImg.style.display = 'block';
-            modalVideo.style.display = 'none';
-            modalImg.src = currentItem;
-        }
-    }
-
-    function setupCloseButton() {
-        const closeBtn = document.querySelector("#imageModal .close");
-        if (closeBtn) {
-            closeBtn.addEventListener("click", function () {
-                modal.style.display = "none";
-                modalVideo.pause();
-            });
-        } else {
-            console.error("Close button not found!");
-        }
-    }
-
-    prevBtn.addEventListener("click", function () {
-        currentIndex = (currentIndex - 1 + currentMedia.length) % currentMedia.length;
-        updateModalMedia();
-    });
-
-    nextBtn.addEventListener("click", function () {
-        currentIndex = (currentIndex + 1) % currentMedia.length;
-        updateModalMedia();
-    });
-
-    modal.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-            modalVideo.pause();
-        }
-    });
-
-    const currentProjectData = {
-        mainImage: "images/grand_gaube/foundation/Foundation0.jpeg",
-        alt: "Grand Gaube Project",
-        gallery: [
-            "images/grand_gaube/foundation/Foundation0.jpeg",
-            "images/grand_gaube/foundation/Foundation01.jpeg",
-            "images/grand_gaube/foundation/Foundation04.jpeg",
-            "images/grand_gaube/foundation/Foundation02.jpeg",
-            "images/grand_gaube/foundation/Foundation05.mp4",
-            "images/grand_gaube/foundation/Foundation06.mp4"
-        ]
-    };
-
-    const currentProjectThumbnail = document.createElement("img");
-    currentProjectThumbnail.src = currentProjectData.mainImage;
-    currentProjectThumbnail.alt = currentProjectData.alt;
-    currentProjectThumbnail.classList.add("gallery-img");
-
-    currentProjectThumbnail.addEventListener("click", function () {
-        currentMedia = currentProjectData.gallery;
-        currentIndex = 0;
-        updateModalMedia();
-        modal.style.display = "flex";
-        setupCloseButton();
-    });
-
-    currentProjectsGallery.appendChild(currentProjectThumbnail);
-});
