@@ -90,32 +90,18 @@
         </div>
     </div>
     
-    <section id="contact">
-        <h2>Contact Us</h2>
-       <!--  <p>Email: <a href="mailto:contact@dodopropertyservices.com">contact@dodopropertyservices.com</a></p> -->
-        <!--  <p>Phone: +61 XXXX XXX XXX</p>  -->
-    <form name="contact" netlify data-netlify-recaptcha="true" method="POST">
-        <input type="hidden" name="form-name" value="contact" />
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form name="contact" netlify data-netlify-recaptcha="true" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <div data-netlify-recaptcha="true"></div>
+    <button type="submit">Send</button>
+  </form>
+</section>
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea><br><br>
-
-        <input type="hidden" name="phone" value="0438051910">
-        <input type="hidden" name="email" value="nicbap@engineer.com">
-
-        <div data-netlify-recaptcha="true"></div>
-
-        <button type="submit">Submit</button>
-    </form>
-
-
-
-        
-        <p><strong>Get Started Today!</strong> Don’t let distance stop you from managing your property in Mauritius. With Dodo Property Services, you get trusted oversight, quality assurance, and stress-free property management.</p>
-        <p>📍 Based in Australia, serving Mauritians worldwide.</p>
-    </section>
+    
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </body>
