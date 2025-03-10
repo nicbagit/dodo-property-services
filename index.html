@@ -92,18 +92,38 @@
     
 <section id="contact">
   <h2>Contact Us</h2>
-  <form name="contact" netlify data-netlify-recaptcha="true" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
+  <form name="contact" netlify data-netlify-recaptcha="true" method="POST" onsubmit="return validateForm()">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
     <div data-netlify-recaptcha="true"></div>
     <button type="submit">Send</button>
   </form>
+</section>
 
-            <p><strong>Get Started Today!</strong> Don’t let distance stop you from managing your property in Mauritius. With Dodo Property Services, you get trusted oversight, quality assurance, and stress-free property management.</p>
+        <p><strong>Get Started Today!</strong> Don’t let distance stop you from managing your property in Mauritius. With Dodo Property Services, you get trusted oversight, quality assurance, and stress-free property management.</p>
         <p>📍 Based in Australia, serving Mauritians worldwide.</p>
     
-</section>
+<script>
+function validateForm() {
+  var response = grecaptcha.getResponse();
+  if (response.length === 0) {
+    alert("Please complete the reCAPTCHA");
+    return false;
+  }
+  return true;
+}
+</script>
+
 
     
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
