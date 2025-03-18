@@ -140,7 +140,21 @@ document.addEventListener("DOMContentLoaded", function () {
             "images/grand_gaube/foundation/Foundation3.jpeg",
             "images/grand_gaube/foundation/Foundation4.jpeg",
             "images/grand_gaube/foundation/Foundation5.mp4",
-            "images/grand_gaube/foundation/Foundation6.mp4"
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure1.jpg",
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure2.jpg",
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure3.jpg",
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure4.jpg",
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure5.jpg",
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure6.jpg",
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure7.jpg",
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure8.jpg",
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure9.jpg",
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure10.jpg",
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure11.jpg",
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure12.jpg",
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure13.jpg",
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure14.jpg"
+            
         ]
     };
 
