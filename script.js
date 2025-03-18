@@ -153,8 +153,16 @@ document.addEventListener("DOMContentLoaded", function () {
             "images/grand_gaube/BlocksAndStructure/BlocksAndStructure11.jpg",
             "images/grand_gaube/BlocksAndStructure/BlocksAndStructure12.jpg",
             "images/grand_gaube/BlocksAndStructure/BlocksAndStructure13.jpg",
-            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure14.jpg"
-            
+            "images/grand_gaube/BlocksAndStructure/BlocksAndStructure14.jpg",
+            "images/grand_gaube/BeamsAndRoof/BeamsAndRoof1.jpg",
+            "images/grand_gaube/BeamsAndRoof/BeamsAndRoof2.jpg",
+            "images/grand_gaube/BeamsAndRoof/BeamsAndRoof3.jpeg",
+            "images/grand_gaube/BeamsAndRoof/BeamsAndRoof4.jpeg",
+            "images/grand_gaube/BeamsAndRoof/BeamsAndRoof5.jpeg",
+            "images/grand_gaube/BeamsAndRoof/BeamsAndRoof6.jpeg",
+            "images/grand_gaube/BeamsAndRoof/BeamsAndRoof7.jpeg",
+            "images/grand_gaube/BeamsAndRoof/BeamsAndRoof8.jpeg",
+            "images/grand_gaube/BeamsAndRoof/BeamsAndRoof9.jpeg"
         ]
     };
 
