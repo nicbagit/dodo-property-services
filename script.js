@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "images/grand_gaube/foundation/Foundation02.jpeg",
             "images/grand_gaube/foundation/Foundation05.mp4",
             "images/grand_gaube/foundation/Foundation06.mp4",
-            "images/grand_gaube/foundation/SurveyLayout1.jpg"
+            "images/grand_gaube/SurveyLayout/SurveyLayout1.jpg"
         ]
     };
 
