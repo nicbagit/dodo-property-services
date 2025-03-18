@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const currentProjectData = {
-        mainImage: "images/grand_gaube/foundation/Foundation0.jpeg",
+        mainImage: "images/grand_gaube/foundation/GrandGaube.jpg",
         alt: "Grand Gaube Project",
         gallery: [
             "images/grand_gaube/SiteClear/SiteClearing1.jpeg",
