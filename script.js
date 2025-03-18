@@ -122,18 +122,24 @@ document.addEventListener("DOMContentLoaded", function () {
         mainImage: "images/grand_gaube/foundation/Foundation0.jpeg",
         alt: "Grand Gaube Project",
         gallery: [
-            "images/grand_gaube/foundation/Foundation0.jpeg",
-            "images/grand_gaube/foundation/Foundation01.jpeg",
-            "images/grand_gaube/foundation/Foundation04.jpeg",
-            "images/grand_gaube/foundation/Foundation02.jpeg",
-            "images/grand_gaube/foundation/Foundation05.mp4",
-            "images/grand_gaube/foundation/Foundation06.mp4",
+            "images/grand_gaube/SiteClear/SiteClearing1.jpeg",
+            "images/grand_gaube/SiteClear/SiteClearing2.jpeg",
+            "images/grand_gaube/SiteClear/SiteClearing3.jpeg",
+            "images/grand_gaube/SiteClear/SiteClearing4.jpeg",
+            "images/grand_gaube/SiteClear/SiteClearing5.mp4",
+            "images/grand_gaube/SiteClear/SiteClearing6.mp4",
             "images/grand_gaube/SurveyLayout/SurveyLayout1.jpg",
             "images/grand_gaube/SurveyLayout/SurveyLayout2.jpg",
             "images/grand_gaube/SurveyLayout/SurveyLayout3.jpg",
             "images/grand_gaube/SurveyLayout/SurveyLayout4.jpg",
             "images/grand_gaube/SurveyLayout/SurveyLayout5.jpg",
-            "images/grand_gaube/SurveyLayout/SurveyLayout6.jpg"
+            "images/grand_gaube/SurveyLayout/SurveyLayout6.jpg",
+            "images/grand_gaube/foundation/Foundation1.jpeg",
+            "images/grand_gaube/foundation/Foundation2.jpeg",
+            "images/grand_gaube/foundation/Foundation3.jpeg",
+            "images/grand_gaube/foundation/Foundation4.jpeg",
+            "images/grand_gaube/foundation/Foundation5.mp4",
+            "images/grand_gaube/foundation/Foundation6.mp4"
         ]
     };
 
