@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "images/grand_gaube/foundation/Foundation2.jpeg",
             "images/grand_gaube/foundation/Foundation3.jpeg",
             "images/grand_gaube/foundation/Foundation4.jpeg",
-            "images/grand_gaube/foundation/Foundation5.mp4",
+            "images/grand_gaube/foundation/Foundation5.jpeg",
             "images/grand_gaube/BlocksAndStructure/BlocksAndStructure1.jpeg",
             "images/grand_gaube/BlocksAndStructure/BlocksAndStructure2.jpeg",
             "images/grand_gaube/BlocksAndStructure/BlocksAndStructure3.jpeg",
