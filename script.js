@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const projects = [
         {
             mainImage: "images/project_gallery/construction/Construction.jpg",
-            alt: "Project 1 - Modern House",
+            alt: "Construction in progress",
             gallery: [
                       "images/project_gallery/construction/Construction (1).jpg",
                       "images/project_gallery/construction/Construction (2).jpg",
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             mainImage: "images/project_gallery/exterior/Exterior (10).jpg",
-            alt: "Project 2 - Beachfront Villa",
+            alt: "Exterior Designs",
             gallery: [
                       "images/project_gallery/exterior/Exterior (10).jpg",
                       "images/project_gallery/exterior/Exterior (11).jpg",
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             mainImage: "images/project_gallery/interior/Interior (10).jpg",
-            alt: "Project 3 - Renovated Apartment",
+            alt: "Interior Designs",
             gallery: [
                       "images/project_gallery/interior/Interior (10).jpg",
                       "images/project_gallery/interior/Interior (11).jpg",
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             mainImage: "images/project_gallery/kitchen/Kitchen (10).jpg",
-            alt: "Project 4 - Renovated Apartment",
+            alt: "Kitchen Designs",
             gallery: [
                       "images/project_gallery/kitchen/Kitchen (10).jpg",
                       "images/project_gallery/kitchen/Kitchen (11).jpg",
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             mainImage: "images/project_gallery/landscape/Landscape (10).jpg",
-            alt: "Project 4 - Renovated Apartment",
+            alt: "Landscaping projects",
             gallery: [
                       "images/project_gallery/landscape/Landscape (10).jpg",
                       "images/project_gallery/landscape/Landscape (11).jpg",
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             mainImage: "images/project_gallery/pool/Pool (10).jpg",
-            alt: "Project 4 - Renovated Apartment",
+            alt: "Amazing pool designs",
             gallery: [
                       "images/project_gallery/pool/Pool (10).jpg",
                       "images/project_gallery/pool/Pool (2).jpg",
