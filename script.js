@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     imageFolders.forEach(folder => {
-        // Fetch all images from each folder
         for (let i = 1; ; i++) {
             const imagePath = `images/project_gallery/${folder}/${folder} (${i}).jpg`;
             const image = new Image();
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             image.src = imagePath;
         }
-    });
+
 
     // ... (rest of your JavaScript code for modal, etc.)
 });
