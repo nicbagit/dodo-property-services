@@ -52,6 +52,17 @@ document.addEventListener("DOMContentLoaded", function () {
         img.classList.add("gallery-img");
         img.dataset.index = index;
 
+        // Create title element
+        const title = document.createElement("h3");
+        title.textContent = project.title;
+        title.classList.add("project-title"); // Add a class for styling
+    
+        // Create a container for the image and title
+        const projectContainer = document.createElement("div");
+        projectContainer.classList.add("project-item");
+        projectContainer.appendChild(img);
+        projectContainer.appendChild(title);
+        
         img.addEventListener("click", function () {
             currentMedia = project.gallery;
             currentIndex = 0;
