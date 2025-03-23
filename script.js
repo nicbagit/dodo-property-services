@@ -1,117 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const gallery = document.getElementById("gallery");
-    const currentProjectsGallery = document.querySelector("#current-projects .gallery");
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-    const modalVideo = document.createElement('video');
-    modalVideo.controls = true;
-    modalVideo.style.maxWidth = '80%';
-    modalVideo.style.maxHeight = '80%';
-    modalVideo.style.display = 'none';
-    modal.appendChild(modalVideo);
-  
-   const prevBtn = document.getElementById("prev");
-    const nextBtn = document.getElementById("next");
-  
-    let currentMedia = [];
-    let currentIndex = 0;
+    const gallery = document.getElementById("gallery");
+    const imageFolders = [
+        "Construction",
+        "Exterior",
+        "Interior",
+        "Kitchen",
+        "Landscape",
+        "Pool"
+    ];
 
-    // Define project images
-    const projects = [
-        {
-            mainImage: "images/project_gallery/construction/Construction.jpg",
-            alt: "Project 1 - Modern House",
-            gallery: ["images/project_gallery/construction/Construction.jpg", "images/project_gallery/construction/Construction (1).jpg", "images/project_gallery/construction/Construction (2).jpg"],
-            title: "Construction" // Added title
-        },
-        {
-            mainImage: "images/project2.jpg",
-            alt: "Project 2 - Beachfront Villa",
-            gallery: ["images/project2-1.jpg", "images/project2-2.jpg", "images/project2-3.jpg"],
-            title: "Exterior" // Added title
-        },
-        {
-            mainImage: "images/project3.jpg",
-            alt: "Project 3 - Renovated Apartment",
-            gallery: ["images/project3-1.jpg", "images/project3-2.jpg", "images/project3-3.jpg"],
-            title: "Interior" // Added title
-        },
-        {
-            mainImage: "images/project3.jpg",
-            alt: "Project 4 - Renovated Apartment",
-            gallery: ["images/project3-1.jpg", "images/project3-2.jpg", "images/project3-3.jpg"],
-            title: "Kitchen" // Added title
-        },
-        {
-            mainImage: "images/project3.jpg",
-            alt: "Project 4 - Renovated Apartment",
-            gallery: ["images/project3-1.jpg", "images/project3-2.jpg", "images/project3-3.jpg"],
-            title: "Landscape" // Added title
-        },
-        {
-            mainImage: "images/project3.jpg",
-            alt: "Project 4 - Renovated Apartment",
-            gallery: ["images/project3-1.jpg", "images/project3-2.jpg", "images/project3-3.jpg"],
-            title: "Pool" // Added title
-        }
-    ];
+    imageFolders.forEach(folder => {
+        // Fetch all images from each folder
+        for (let i = 1; ; i++) {
+            const imagePath = `images/project_gallery/${folder}/${folder} (${i}).jpg`;
+            const image = new Image();
 
-    // Populate the gallery with project images
-    projects.forEach((project, index) => {
-        const img = document.createElement("img");
-        img.src = project.mainImage;
-        img.alt = project.alt;
-        img.classList.add("gallery-img");
-        img.dataset.index = index;
+            image.onload = function () {
+                const img = document.createElement("img");
+                img.src = imagePath;
+                img.alt = `${folder} image ${i}`;
+                img.classList.add("gallery-img");
+                gallery.appendChild(img);
+            };
 
-        // Create title element
-        const title = document.createElement("h3");
-        title.textContent = project.title;
-        title.classList.add("project-title"); // Add a class for styling
+            image.onerror = function () {
+                // Stop trying to load images when one fails (no more images in sequence)
+                return;
+            };
 
-        // Create a container for the image and title
-        const projectContainer = document.createElement("div");
-        projectContainer.classList.add("project-item");
-        projectContainer.appendChild(title); // Append title first
-        projectContainer.appendChild(img);      
+            image.src = imagePath;
+        }
+    });
 
-        img.addEventListener("click", function () {
-            currentMedia = project.gallery;
-            currentIndex = 0;
-            modalImg.style.display = 'block';
-            modalVideo.style.display = 'none';
-            updateModalMedia();
-            modal.style.display = "flex";
-            setupCloseButton();
-        });
-
-        gallery.appendChild(projectContainer);
-    });
-
-  // Define project categories and their images
-const projectCategories = ["Construction", "Exterior", "Interior", "Kitchen", "Landscape", "Pool"];
-
-// Generate project objects dynamically
-const projects = projectCategories.map(category => {
-    // Get all images in the folder
-    const basePath = `images/project_gallery/${category}/`;
-    const mainImage = `${basePath}${category}.jpg`; // Assuming main image is named after the folder
-    
-    // Construct gallery array with numbered images and the main image
-    const gallery = [mainImage];
-    for (let i = 1; i <= 50; i++) { // Adjust the range if needed
-        const imagePath = `${basePath}${category} (${i}).jpg`;
-        gallery.push(imagePath);
-    }
-    
-    return {
-        mainImage,
-        alt: `Project - ${category}`,
-        gallery,
-        title: category
-    };
+    // ... (rest of your JavaScript code for modal, etc.)
 });
-
 console.log(projects); // Debugging purpose
 
 
