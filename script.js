@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Define project images
     const projects = [
         {
-            mainImage: "images/project1.jpg",
+            mainImage: "images/project_gallery/construction/Construction.jpg",
             alt: "Project 1 - Modern House",
             gallery: ["images/project_gallery/construction/Construction.jpg", "images/project_gallery/construction/Construction (1).jpg", "images/project_gallery/construction/Construction (2).jpg"],
             title: "Construction" // Added title
