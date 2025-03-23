@@ -33,6 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
             alt: "Project 3 - Renovated Apartment",
             gallery: ["images/project3-1.jpg", "images/project3-2.jpg", "images/project3-3.jpg"]
         }
+        {
+            mainImage: "images/project3.jpg",
+            alt: "Project 4 - Renovated Apartment",
+            gallery: ["images/project3-1.jpg", "images/project3-2.jpg", "images/project3-3.jpg"]
+        }
     ];
 
     // Populate the gallery with project images
