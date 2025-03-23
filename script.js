@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "Construction" // Added title
         },
         {
-            mainImage: "images/project2.jpg",
+            mainImage: "images/project_gallery/exterior/Exterior (10).jpg",
             alt: "Project 2 - Beachfront Villa",
             gallery: [
                       "images/project_gallery/exterior/Exterior (10).jpg",
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "Exterior" // Added title
         },
         {
-            mainImage: "images/project3.jpg",
+            mainImage: "images/project_gallery/interior/Interior (10).jpg",
             alt: "Project 3 - Renovated Apartment",
             gallery: [
                       "images/project_gallery/interior/Interior (10).jpg",
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "Interior" // Added title
         },
         {
-            mainImage: "images/project3.jpg",
+            mainImage: "images/project_gallery/kitchen/Kitchen (10).jpg",
             alt: "Project 4 - Renovated Apartment",
             gallery: [
                       "images/project_gallery/kitchen/Kitchen (10).jpg",
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "Kitchen" // Added title
         },
         {
-            mainImage: "images/project3.jpg",
+            mainImage: "images/project_gallery/landscape/Landscape (10).jpg",
             alt: "Project 4 - Renovated Apartment",
             gallery: [
                       "images/project_gallery/landscape/Landscape (10).jpg",
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "Landscape" // Added title
         },
         {
-            mainImage: "images/project3.jpg",
+            mainImage: "images/project_gallery/pool/Pool (10).jpg",
             alt: "Project 4 - Renovated Apartment",
             gallery: [
                       "images/project_gallery/pool/Pool (10).jpg",
