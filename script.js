@@ -21,26 +21,38 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             mainImage: "images/project1.jpg",
             alt: "Project 1 - Modern House",
-            gallery: ["images/project1-1.jpg", "images/project1-2.jpg", "images/project1-3.jpg"],
-            title: "Modern House Project" // Added title
+            gallery: ["images/project_gallery/construction/Construction.jpg", "images/project_gallery/construction/Construction (1).jpg", "images/project_gallery/construction/Construction (2).jpg"],
+            title: "Construction" // Added title
         },
         {
             mainImage: "images/project2.jpg",
             alt: "Project 2 - Beachfront Villa",
             gallery: ["images/project2-1.jpg", "images/project2-2.jpg", "images/project2-3.jpg"],
-            title: "Modern House Project" // Added title
+            title: "Exterior" // Added title
         },
         {
             mainImage: "images/project3.jpg",
             alt: "Project 3 - Renovated Apartment",
             gallery: ["images/project3-1.jpg", "images/project3-2.jpg", "images/project3-3.jpg"],
-            title: "Modern House Project" // Added title
+            title: "Interior" // Added title
         },
         {
             mainImage: "images/project3.jpg",
             alt: "Project 4 - Renovated Apartment",
             gallery: ["images/project3-1.jpg", "images/project3-2.jpg", "images/project3-3.jpg"],
-            title: "Modern House Project" // Added title
+            title: "Kitchen" // Added title
+        },
+        {
+            mainImage: "images/project3.jpg",
+            alt: "Project 4 - Renovated Apartment",
+            gallery: ["images/project3-1.jpg", "images/project3-2.jpg", "images/project3-3.jpg"],
+            title: "Landscape" // Added title
+        },
+        {
+            mainImage: "images/project3.jpg",
+            alt: "Project 4 - Renovated Apartment",
+            gallery: ["images/project3-1.jpg", "images/project3-2.jpg", "images/project3-3.jpg"],
+            title: "Pool" // Added title
         }
     ];
 
