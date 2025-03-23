@@ -229,6 +229,7 @@ button:hover {
 
 .project-title {
     font-weight: normal; /* or use lighter */
+    color: #666; /* Light gray */
 }
 
 .prev, .next {
