@@ -29,9 +29,17 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "Construction" // Added title
         },
         {
-            mainImage: "images/project_gallery/exterior/Exterior (10).jpg",
+            mainImage: "images/project_gallery/exterior/Exterior (2).jpg",
             alt: "Exterior Designs",
             gallery: [
+                      "images/project_gallery/exterior/Exterior (2).jpg",
+                      "images/project_gallery/exterior/Exterior (3).jpg",
+                      "images/project_gallery/exterior/Exterior (4).jpg",
+                      "images/project_gallery/exterior/Exterior (5).jpg",
+                      "images/project_gallery/exterior/Exterior (6).jpg",
+                      "images/project_gallery/exterior/Exterior (7).jpg",
+                      "images/project_gallery/exterior/Exterior (8).jpg",
+                      "images/project_gallery/exterior/Exterior (9).jpg",
                       "images/project_gallery/exterior/Exterior (10).jpg",
                       "images/project_gallery/exterior/Exterior (11).jpg",
                       "images/project_gallery/exterior/Exterior (12).jpg",
@@ -42,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
                       "images/project_gallery/exterior/Exterior (17).jpg",
                       "images/project_gallery/exterior/Exterior (18).jpg",
                       "images/project_gallery/exterior/Exterior (19).jpg",
-                      "images/project_gallery/exterior/Exterior (2).jpg",
                       "images/project_gallery/exterior/Exterior (20).jpg",
                       "images/project_gallery/exterior/Exterior (21).jpg",
                       "images/project_gallery/exterior/Exterior (22).jpg",
@@ -53,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
                       "images/project_gallery/exterior/Exterior (27).jpg",
                       "images/project_gallery/exterior/Exterior (28).jpg",
                       "images/project_gallery/exterior/Exterior (29).jpg",
-                      "images/project_gallery/exterior/Exterior (3).jpg",
                       "images/project_gallery/exterior/Exterior (30).jpg",
                       "images/project_gallery/exterior/Exterior (31).jpg",
                       "images/project_gallery/exterior/Exterior (32).jpg",
@@ -63,12 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       "images/project_gallery/exterior/Exterior (36).jpg",
                       "images/project_gallery/exterior/Exterior (37).jpg",
                       "images/project_gallery/exterior/Exterior (38).jpg",
-                      "images/project_gallery/exterior/Exterior (4).jpg",
-                      "images/project_gallery/exterior/Exterior (5).jpg",
-                      "images/project_gallery/exterior/Exterior (6).jpg",
-                      "images/project_gallery/exterior/Exterior (7).jpg",
-                      "images/project_gallery/exterior/Exterior (8).jpg",
-                      "images/project_gallery/exterior/Exterior (9).jpg",
+
                       "images/project_gallery/exterior/Exterior.jpg"
                   ],
             title: "Exterior" // Added title
