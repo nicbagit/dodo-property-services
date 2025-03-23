@@ -186,14 +186,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "images/grand_gaube/BeamsAndRoof/BeamsAndRoof7.jpeg",
             "images/grand_gaube/BeamsAndRoof/BeamsAndRoof8.jpeg",
             "images/grand_gaube/BeamsAndRoof/BeamsAndRoof9.jpeg"
-        ],
-      title: "Grand Gaube Villa Project"
+        ]
     };
-
-    // Create title for current project
-    const currentProjectTitle = document.createElement("h3");
-    currentProjectTitle.textContent = currentProjectData.title;
-    currentProjectsGallery.parentElement.insertBefore(currentProjectTitle, currentProjectsGallery); // Insert title before gallery
 
     const currentProjectThumbnail = document.createElement("img");
     currentProjectThumbnail.src = currentProjectData.mainImage;
