@@ -227,6 +227,10 @@ button:hover {
     cursor: pointer;
 }
 
+.project-title {
+    font-weight: normal; /* or use lighter */
+}
+
 .prev, .next {
     position: absolute;
     top: 50%;
