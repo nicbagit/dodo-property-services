@@ -88,38 +88,31 @@ document.addEventListener("DOMContentLoaded", function () {
         gallery.appendChild(projectContainer);
     });
 
-    function updateModalMedia() {
-        const currentItem = currentMedia[currentIndex];
-        const filename = currentItem.substring(currentItem.lastIndexOf('/') + 1); // Extract filename
-        if (currentItem.endsWith('.mp4')) {
-            modalImg.style.display = 'none';
-            modalVideo.style.display = 'block';
-            modalVideo.src = currentItem;
-            modalVideo.load();
-        } else {
-            modalImg.style.display = 'block';
-            modalVideo.style.display = 'none';
-            modalImg.src = currentItem;
-        }
+  // Define project categories and their images
+const projectCategories = ["Construction", "Exterior", "Interior", "Kitchen", "Landscape", "Pool"];
 
-        // Add or update filename display
-        let filenameDisplay = document.getElementById("filenameDisplay");
-        if (!filenameDisplay) {
-            filenameDisplay = document.createElement("div");
-            filenameDisplay.id = "filenameDisplay";
-            filenameDisplay.style.textAlign = "center";
-            filenameDisplay.style.marginTop = "10px"; // Add some space
-            filenameDisplay.style.padding = "5px 10px"; // Add padding
-            filenameDisplay.style.backgroundColor = "rgba(0, 0, 0, 0.7)"; // Dark background
-            filenameDisplay.style.color = "white"; // White text
-            filenameDisplay.style.borderRadius = "5px"; // Rounded corners
-            filenameDisplay.style.fontSize = "16px"; // Adjust font size
-            filenameDisplay.style.fontWeight = "bold"; // Bold text            
+// Generate project objects dynamically
+const projects = projectCategories.map(category => {
+    // Get all images in the folder
+    const basePath = `images/project_gallery/${category}/`;
+    const mainImage = `${basePath}${category}.jpg`; // Assuming main image is named after the folder
+    
+    // Construct gallery array with numbered images and the main image
+    const gallery = [mainImage];
+    for (let i = 1; i <= 50; i++) { // Adjust the range if needed
+        const imagePath = `${basePath}${category} (${i}).jpg`;
+        gallery.push(imagePath);
+    }
+    
+    return {
+        mainImage,
+        alt: `Project - ${category}`,
+        gallery,
+        title: category
+    };
+});
 
-            modal.querySelector(".modal-content").appendChild(filenameDisplay);
-        }
-        filenameDisplay.textContent = filename;
-    }
+console.log(projects); // Debugging purpose
 
 
 
