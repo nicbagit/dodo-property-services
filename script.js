@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setupCloseButton();
         });
 
-        gallery.appendChild(img);
+        gallery.appendChild(projectContainer);
     });
 
     function updateModalMedia() {
