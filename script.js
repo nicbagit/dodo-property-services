@@ -29,13 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "Construction" // Added title
         },
         {
-            mainImage: "images/project_gallery/exterior/Exterior (2).jpg",
+            mainImage: "images/project_gallery/exterior/Exterior (5).jpg",
             alt: "Exterior Designs",
             gallery: [
+                      "images/project_gallery/exterior/Exterior (5).jpg",
                       "images/project_gallery/exterior/Exterior (2).jpg",
                       "images/project_gallery/exterior/Exterior (3).jpg",
                       "images/project_gallery/exterior/Exterior (4).jpg",
-                      "images/project_gallery/exterior/Exterior (5).jpg",
                       "images/project_gallery/exterior/Exterior (6).jpg",
                       "images/project_gallery/exterior/Exterior (7).jpg",
                       "images/project_gallery/exterior/Exterior (8).jpg",
