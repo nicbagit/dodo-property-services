@@ -9,31 +9,31 @@ document.addEventListener("DOMContentLoaded", function () {
         "Pool"
     ];
 
-    imageFolders.forEach(folder => {
-        let imageIndex = 1; // Start with 1
-        let imageLoaded = true; // Initialize to true to start the loop
+    function loadImages(folder, index) {
+        const imagePath = `images/project_gallery/${folder}/${folder} (${index}).jpg`;
+        const image = new Image();
 
-        while (imageLoaded) {
-            const imagePath = `images/project_gallery/${folder}/${folder} (${imageIndex}).jpg`;
-            const image = new Image();
+        image.onload = function () {
+            const img = document.createElement("img");
+            img.src = imagePath;
+            img.alt = `${folder} image ${index}`;
+            img.classList.add("gallery-img");
+            gallery.appendChild(img);
 
-            image.onload = function () {
-                const img = document.createElement("img");
-                img.src = imagePath;
-                img.alt = `${folder} image ${imageIndex}`;
-                img.classList.add("gallery-img");
-                gallery.appendChild(img);
-                imageIndex++; // Increment for the next image
-            };
+            // Load next image
+            loadImages(folder, index + 1);
+        };
 
-            image.onerror = function () {
-                imageLoaded = false; // Stop the loop when an image fails to load
-            };
+        image.onerror = function () {
+            // Stop loading images when one fails to load
+        };
 
-            image.src = imagePath;
-            if (!imageLoaded) break; // if image failed to load in previous iteration, breaks the loop.
-        }
-    });
+        image.src = imagePath;
+    }
+
+    // Start loading images for each folder
+    imageFolders.forEach(folder => loadImages(folder, 1));
+});
 
     function setupCloseButton() {
         const closeBtn = document.querySelector("#imageModal .close");
