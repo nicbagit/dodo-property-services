@@ -63,17 +63,17 @@ document.addEventListener("DOMContentLoaded", function () {
         projectContainer.appendChild(img);
         projectContainer.appendChild(title);
         
-        img.addEventListener("click", function () {
-            currentMedia = project.gallery;
-            currentIndex = 0;
-            modalImg.style.display = 'block';
-            modalVideo.style.display = 'none';
-            updateModalMedia();
-            modal.style.display = "flex";
-            setupCloseButton();
-        });
+    img.addEventListener("click", function () {
+        currentMedia = projects[index].gallery; // Access project using index
+        currentIndex = 0;
+        modalImg.style.display = 'block';
+        modalVideo.style.display = 'none';
+        updateModalMedia();
+        modal.style.display = "flex";
+        setupCloseButton();
+    });
 
-        gallery.appendChild(projectContainer);
+    gallery.appendChild(projectContainer);
     });
 
     function updateModalMedia() {
